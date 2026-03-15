@@ -8,6 +8,7 @@ from ._types import (
     AccountUser,
     CreateQuestionParams,
     CreateTokenParams,
+    ErrorCode,
     ListQuestionsParams,
     ListResponsesParams,
     ListWebhooksParams,
@@ -21,6 +22,7 @@ from ._types import (
     ResponseItem,
     TokenResult,
     WebhookDelivery,
+    WebhookEvent,
     WebhookTrigger,
 )
 from ._version import VERSION as __version__
@@ -52,5 +54,7 @@ __all__ = [
     "ResponseItem",
     "TokenResult",
     "WebhookDelivery",
+    "WebhookEvent",
     "WebhookTrigger",
+    "ErrorCode",
 ]

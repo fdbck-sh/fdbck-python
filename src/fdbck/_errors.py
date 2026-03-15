@@ -4,6 +4,8 @@ from __future__ import annotations
 
 from typing import Any
 
+from ._types import ErrorCode
+
 
 class FdbckError(Exception):
     """Base error for all fdbck SDK errors."""
@@ -15,7 +17,7 @@ class FdbckApiError(FdbckError):
     def __init__(
         self,
         status: int,
-        code: str,
+        code: ErrorCode,
         message: str,
         details: dict[str, Any] | None = None,
     ) -> None:

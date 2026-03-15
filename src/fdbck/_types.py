@@ -10,6 +10,34 @@ QuestionType = Literal["yes_no", "single_choice", "multiple_choice", "rating"]
 QuestionStatus = Literal["collecting", "completed", "expired", "cancelled"]
 WebhookTrigger = Literal["expiry", "each_response", "both"]
 
+WebhookEvent = Literal[
+    "question.response_received",
+    "question.completed",
+    "question.expired",
+    "question.cancelled",
+]
+
+ErrorCode = Literal[
+    "unauthorized",
+    "invalid_token",
+    "forbidden",
+    "plan_restricted",
+    "plan_limit_reached",
+    "not_found",
+    "already_responded",
+    "already_closed",
+    "question_expired",
+    "validation_error",
+    "rate_limit_exceeded",
+    "internal_error",
+    "bad_request",
+    "conflict",
+    "gone",
+    "not_collecting",
+    "parse_error",
+    "unknown_error",
+]
+
 
 class RatingConfig(TypedDict, total=False):
     """Rating scale configuration."""
@@ -105,7 +133,7 @@ class WebhookDelivery(TypedDict, total=False):
     """A webhook delivery log entry."""
 
     id: str
-    event: str
+    event: WebhookEvent
     success: bool
     status_code: Optional[int]
     attempts: int
